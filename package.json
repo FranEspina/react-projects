@@ -1,0 +1,17 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "Aplicaciones React",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Fran Espina",
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^17.1.0"
+  }, 
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  }
+}
