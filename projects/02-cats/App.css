@@ -1,0 +1,23 @@
+.main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cat-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.cat-container img{
+  height: 200px;
+  width: auto;
+}
+
+.cat-container button{
+  cursor: pointer;
+}
