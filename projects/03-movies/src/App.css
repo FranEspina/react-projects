@@ -5,6 +5,7 @@
   text-align: center;
   background-color: black;
   color: white;
+  width: 100%;
 }
 
 .finder-container{
@@ -14,11 +15,36 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 30px;
+  width: 100%;
 }
 
+
 .movies-container{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px
+}
+
+.card-movie{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.card-movie h2{
+  height: 80px;
+  overflow: hidden;
+}
+
+.card-movie img{
+  width: 300px;
+  height: 445px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.error-movie{
+  color: red;
 }

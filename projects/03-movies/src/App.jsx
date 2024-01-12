@@ -53,7 +53,7 @@ function App () {
           <div className='finder-container'>
             <input type='text' onChange={handleChange} />
             <button onClick={handleClick}>Buscar</button>
-            {errorMessage && <p>{movie}: {errorMessage}</p>}
+            {errorMessage && <p className='error-movie'>{errorMessage}</p>}
           </div>
           <div className='movies-container'>
             {movies}
