@@ -1,7 +1,7 @@
 const IMDB_API_KEY = '4287AD07'
 const IMDB_END_POINT = `https://www.omdbapi.com/?apikey=${IMDB_API_KEY}&s=`
 
-export async function getMovies (search) {
+export async function searchMovies (search) {
   const url = `${IMDB_END_POINT}${search}`
   const res = await fetch(url)
   const data = await res.json()

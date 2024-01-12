@@ -1,40 +1,41 @@
-import { useEffect, useState } from 'react'
+import { useState, useRef, useCallback } from 'react'
+import { useMovies } from './hooks/useMovies.jsx'
 import CardMovie from './components/CardMovie.jsx'
-import { getMovies } from './services/movies.js'
+import debounce from 'just-debounce-it'
+
 import './App.css'
 
 function App () {
-  const [search, setSearch] = useState('')
-  const [movies, setMovies] = useState('')
-  const [textToFind, setTextToFind] = useState('')
-  const [errorMessage, setErrorMessage] = useState('')
+  const inputRef = useRef('')
+  const [search, updateSearch] = useState('')
+  const [sort, setSort] = useState(false)
 
-  useEffect(() => {
-    if (textToFind === '') return
-    getMovies(textToFind).then((data) => {
-      if (!data) return
-      if (data.error) {
-        setErrorMessage(data.error)
-        setMovies(null)
-        return
-      }
-      if (data.movies) {
-        const newmovies = data.movies.Search
-        const listMovies = newmovies.map((movie) => <CardMovie key={movie.imdbID} movie={movie.Title} poster={movie.Poster} />)
-        setMovies(listMovies)
-      }
-    })
-  }, [textToFind])
+  const { moviesOrdered: movies, getMovies, errorMessage, loading } = useMovies(search, sort)
 
-  const handleClick = (event) => {
+  const debouncedGetMovies = useCallback(
+    debounce(search => {
+      console.log('search', search)
+      getMovies(search)
+    }, 300)
+    , [getMovies]
+  )
+
+  const handleSubmit = (event) => {
     event.preventDefault()
-    setTextToFind(search)
+    getMovies(inputRef.current.value)
   }
 
   const handleChange = (event) => {
-    setSearch(event.target.value)
-    setErrorMessage('')
+    const newSearch = event.target.value
+    updateSearch(newSearch)
+    debouncedGetMovies(newSearch)
   }
+
+  const handleSort = (event) => {
+    setSort(event.target.checked)
+  }
+
+  const listMovies = movies?.map((movie) => <CardMovie key={movie.imdbID} movie={movie.Title} poster={movie.Poster} />)
 
   return (
     <>
@@ -42,17 +43,22 @@ function App () {
         <h1>Mis peliculas</h1>
         <section>
           <h2>Buscador de peliculas</h2>
-          <form className='finder-container'>
-            <input type='text' onChange={handleChange} />
-            <button onClick={handleClick}>Buscar</button>
+          <form className='finder-container' onSubmit={handleSubmit}>
+            <div className='form-row'>
+              <input ref={inputRef} type='text' onChange={handleChange}/>
+              <button>Buscar</button>
+            </div>
+            <div className='form-row'>
+              <input id='ordenar' name='ordenar' type='checkbox' onChange={handleSort} checked={sort} />
+              <label htmlFor='ordenar'>Ordenar resultados por nombre</label>
+            </div>
             {errorMessage && <p className='error-movie'>{errorMessage}</p>}
           </form>
           <div className='movies-container'>
-            {movies}
+            {loading ? <h2>Cargando ...</h2> : listMovies}
           </div>
         </section>
       </main>
-
     </>
   )
 }
