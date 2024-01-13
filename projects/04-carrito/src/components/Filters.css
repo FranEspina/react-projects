@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: start;
   width: 100%;
   margin-bottom: 40px;
+  margin-left: 40px;
 }
 
 .filters{
