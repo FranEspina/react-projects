@@ -1,6 +1,6 @@
 :root {
-  background-color: #111111;
-  color: #eeeeee;
+  background-color: #050834;
+  color: #d5d5d5;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -27,6 +27,12 @@ main{
   margin-inline-end: 0px;
 }
 
+.product-container .warning-no-product{
+  margin-left: 40px;
+  font-weight: 700;
+  color: #5c6972;
+}
+
 .product-list{
   display: grid;
   grid-template-columns: repeat(
@@ -41,8 +47,110 @@ main{
 
 .product-item{
   width: 200px;
+  background-color: #5c6972;
+  padding: 5px;
+  border-radius: 10px;
+  height: 260px;
+}
+
+.product-info{
+  padding-left: 10px;
+}
+
+.product-actions{
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.product-item figure {
+  width: 200px;
 }
 
 .product-item figure img{
   width: 200px;
+}
+
+.product-actions{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+button {
+  height: 30px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: #d5d5d5;
+  background-color: #3A63A8;
+  border-style: none;
+  transition: all ease 0.2s;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #050834;
+  background-color: #7cb8f2;
+}
+
+select {
+  height: 30px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: #d5d5d5;
+  background-color: #3A63A8;
+  border-style: none;
+  transition: all ease 0.2s;
+  cursor: pointer;
+}
+
+select:hover {
+  color: #050834;
+  background-color: #7cb8f2;
+}
+
+option {
+  color: #050834;
+  height: 30px;
+  padding: 5px 10px;
+  background-color: #d5d5d5;
+  cursor: pointer;
+}
+
+input[type='range']{
+  color: #5c6972;
+  background-color: #3A63A8;
+  cursor: pointer;
+}
+
+.filter-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  margin-bottom: 40px;
+  margin-left: 40px;
+}
+
+.filters{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.price-filter{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 300px;
+}
+
+i.bx{
+  font-size: 20px;
+  font-weight: 700;
 }

@@ -1,7 +1,7 @@
-import { useContext, useEffect, useId, useState } from 'react'
-import './Filters.css'
+import { useContext, useId } from 'react'
 import { FilterContext } from '../context/FilterContext'
 import { useCategories } from '../hooks/useCategories'
+import { FILTERS } from '../constant.js'
 
 export function Filters () {
   const priceId = useId()
@@ -33,8 +33,8 @@ export function Filters () {
       <div className='filters'>
         <div className='price-filter'>
           <label htmlFor={priceId}>Precio</label>
-          <input type='range' id={priceId} min='0' max='1000' onChange={handleChangePrice} />
-          <p>{filters.minPrice}</p>
+          <input type='range' id={priceId} min='0' max={FILTERS.MAX_PRICE} onChange={handleChangePrice} />
+          <p>{filters.minPrice} <span> €</span></p>
         </div>
         <div className='category-filter'>
           <select id={categoryId} onChange={handleChangeCategory}>
