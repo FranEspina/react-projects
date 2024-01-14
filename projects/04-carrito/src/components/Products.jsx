@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 
 export function Products({ products }) {
-  const { addItemToCart } = useContext(CartContext)
+  const { addItemToCart, removeItemFromCart } = useContext(CartContext)
 
   return (
     <section className='product-container'>
@@ -22,7 +22,7 @@ export function Products({ products }) {
                 </div>
                 <div className='product-actions'>
                   <button onClick={() => addItemToCart(product)}><i className='bx bx-cart-add'></i></button>
-                  <button>Eliminar</button>
+                  <button onClick={() => removeItemFromCart(product.id)}>Eliminar</button>
                 </div>
               </div>
             )
