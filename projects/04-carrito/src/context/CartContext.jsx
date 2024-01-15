@@ -1,93 +1,61 @@
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useEffect, useReducer, useState } from 'react'
+import { cartReducer, cartInitialState, CART_ACTION_TYPES } from '../reducers/cartReducer'
 
 export const CartContext = createContext()
 
 export function CartProvider ({ children }) {
-  const cartInitialState = JSON.parse(window.localStorage.getItem('cart')) || []
-  const [cartItems, setCartItems] = useState(cartInitialState)
   const [amountCart, setAmountCart] = useState(0)
 
-  // update localStorage with state for cart
-  const updateLocalStorage = state => {
-    window.localStorage.setItem('cart', JSON.stringify(state))
+  function useCartReducer () {
+    const [state, dispatch] = useReducer(cartReducer, cartInitialState)
+
+    const finishCart = () => dispatch({ type: CART_ACTION_TYPES.FINISH_CART })
+
+    const clearCart = () => dispatch({ type: CART_ACTION_TYPES.FINISH_CART })
+
+    const removeItemFromCart = (id) => dispatch({
+      type: CART_ACTION_TYPES.REMOVE_ITEM_FROM_CART,
+      payload: id
+    })
+
+    const removeCompleteItemFromCart = (id) => dispatch({
+      type: CART_ACTION_TYPES.REMOVE_COMPLETE_ITEM_FROM_CART,
+      payload: id
+    })
+
+    const addItemToCart = (product) => dispatch({
+      type: CART_ACTION_TYPES.ADD_ITEM_TO_CART,
+      payload: product
+    })
+
+    return { state, finishCart, clearCart, removeItemFromCart, addItemToCart, removeCompleteItemFromCart }
   }
 
-  const clearCart = () => {
-    setCartItems([])
-    updateLocalStorage([])
-  }
+  const { state, finishCart, clearCart, removeItemFromCart, addItemToCart, removeCompleteItemFromCart } = useCartReducer()
 
-  const finishCart = () => {
-    setCartItems([])
-    updateLocalStorage([])
-  }
-
-  const addItemToCart = (product) => {
-    const newItems = structuredClone(cartItems)
-    let item = newItems.find(i => i.id === product.id)
-    if (item) {
-      item.cantidad++
-    } else {
-      item = {
-        ...product,
-        cantidad: 1
-      }
-      newItems.push(item)
-    }
-
-    updateLocalStorage(newItems)
-    setCartItems(newItems)
-  }
-
-  const removeItemFromCart = (id) => {
-    const index = cartItems.findIndex(i => i.id === id)
-    if (index >= 0) {
-      const item = cartItems[index]
-      if (item.cantidad === 1) {
-        const newItems = cartItems.filter(item => item.id !== id)
-        setCartItems(newItems)
-        return
-      }
-
-      const newItems = structuredClone(cartItems)
-      newItems[index].cantidad--
-
-      updateLocalStorage(newItems)
-      setCartItems(newItems)
-    }
-  }
-
-  const removeCompleteItemFromCart = (id) => {
-    const index = cartItems.findIndex(i => i.id === id)
-    if (index >= 0) {
-      const newItems = cartItems.filter(item => item.id !== id)
-      updateLocalStorage(newItems)
-      setCartItems(newItems)
-    }
-  }
+  useEffect(() => {
+    let amount = 0
+    state.forEach(a => {
+      amount += a.price * a.cantidad
+    })
+    setAmountCart(amount)
+  }, [state])
 
   const isInCart = (id) => {
-    return cartItems.findIndex(item => item.id === id) >= 0
+    return state.findIndex(item => item.id === id) >= 0
   }
 
   const countItemCart = () => {
     let count = 0
-    cartItems.forEach(item => {
+    state.forEach(item => {
       count += item.cantidad
     })
     return count
   }
 
-  useEffect(() => {
-    let amount = 0
-    cartItems.forEach(a => amount += a.price * a.cantidad)
-    setAmountCart(amount)
-  }, [cartItems])
-
   return (
     <CartContext.Provider value={{
-      cartItems,
-      setCartItems,
+      cartItems: state,
       addItemToCart,
       removeItemFromCart,
       clearCart,
