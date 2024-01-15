@@ -1,13 +1,12 @@
 import { useContext, useId } from 'react'
 import { FilterContext } from '../context/FilterContext'
-import { useCategories } from '../hooks/useCategories'
 import { FILTERS } from '../constant.js'
 
 export function Filters () {
   const priceId = useId()
   const categoryId = useId()
-  const { filters, setFilters } = useContext(FilterContext)
-  const { categories } = useCategories()
+  const { filters, setFilters, categories } = useContext(FilterContext)
+
 
   const handleChangePrice = (event) => {
     setFilters(
@@ -39,13 +38,15 @@ export function Filters () {
           <select id={categoryId} onChange={handleChangeCategory}>
             <option value='none'>[Categoría]</option>
             {
-              categories.map(
-                (c, index) => {
-                  return (
-                    <option key={index} value={c}>{c}</option>
-                  )
-                }
-              )
+              (categories.length > 0)
+                ? categories.map(
+                  (c, index) => {
+                    return (
+                      <option key={index} value={c}>{c}</option>
+                    )
+                  }
+                )
+                : ''
             }
           </select>
         </div>

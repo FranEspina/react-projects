@@ -1,7 +1,6 @@
 import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 import { EuroFormat } from '../services/eurosService'
-import { getProductThumbnail } from '../mocks/thumbnail.js'
 
 export function Products({ products }) {
   const { addItemToCart, removeCompleteItemFromCart, isInCart } = useContext(CartContext)
@@ -28,6 +27,7 @@ export function Products({ products }) {
                 </div>
                 <div className='product-info'>
                   <h4 className='product-title'>{product.title}</h4>
+                  <p>{product.category}</p>
                   <p>{EuroFormat(product.price)}</p>
                 </div>
 

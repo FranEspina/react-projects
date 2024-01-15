@@ -6,7 +6,6 @@ import { CartProvider } from './context/CartContext.jsx'
 
 function App () {
   const { products } = useProduct()
-
   return (
     <>
       <header>

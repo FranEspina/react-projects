@@ -1,5 +1,3 @@
-import { products } from '../mocks/products.json'
-
-export function GetCategories () {
+export function GetCategories (products) {
   return [...new Set(products.map(p => p.category))]
 }
