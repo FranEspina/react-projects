@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 import { EuroFormat } from '../services/eurosService'
+import { getProductThumbnailCart } from '../mocks/thumbnail.js'
 
 export function CartItem ({ producto }) {
   const { addItemToCart, removeItemFromCart } = useContext(CartContext)

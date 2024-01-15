@@ -12,7 +12,7 @@ function App () {
       <header>
         <h1>Mi tienda React</h1>
       </header>
-      <main>
+      <main className='main'>
         <Filters />
         <CartProvider>
           <Cart />
