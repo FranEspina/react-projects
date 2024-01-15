@@ -3,15 +3,23 @@ import { createContext, useEffect, useState } from 'react'
 export const CartContext = createContext()
 
 export function CartProvider ({ children }) {
-  const [cartItems, setCartItems] = useState([])
+  const cartInitialState = JSON.parse(window.localStorage.getItem('cart')) || []
+  const [cartItems, setCartItems] = useState(cartInitialState)
   const [amountCart, setAmountCart] = useState(0)
+
+  // update localStorage with state for cart
+  const updateLocalStorage = state => {
+    window.localStorage.setItem('cart', JSON.stringify(state))
+  }
 
   const clearCart = () => {
     setCartItems([])
+    updateLocalStorage([])
   }
 
   const finishCart = () => {
     setCartItems([])
+    updateLocalStorage([])
   }
 
   const addItemToCart = (product) => {
@@ -26,6 +34,8 @@ export function CartProvider ({ children }) {
       }
       newItems.push(item)
     }
+
+    updateLocalStorage(newItems)
     setCartItems(newItems)
   }
 
@@ -41,8 +51,31 @@ export function CartProvider ({ children }) {
 
       const newItems = structuredClone(cartItems)
       newItems[index].cantidad--
+
+      updateLocalStorage(newItems)
       setCartItems(newItems)
     }
+  }
+
+  const removeCompleteItemFromCart = (id) => {
+    const index = cartItems.findIndex(i => i.id === id)
+    if (index >= 0) {
+      const newItems = cartItems.filter(item => item.id !== id)
+      updateLocalStorage(newItems)
+      setCartItems(newItems)
+    }
+  }
+
+  const isInCart = (id) => {
+    return cartItems.findIndex(item => item.id === id) >= 0
+  }
+
+  const countItemCart = () => {
+    let count = 0
+    cartItems.forEach(item => {
+      count += item.cantidad
+    })
+    return count
   }
 
   useEffect(() => {
@@ -58,7 +91,10 @@ export function CartProvider ({ children }) {
       addItemToCart,
       removeItemFromCart,
       clearCart,
-      finishCart, 
+      finishCart,
+      removeCompleteItemFromCart,
+      isInCart,
+      countItemCart,
       amountCart
     }}
     >

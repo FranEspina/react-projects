@@ -17,7 +17,6 @@ export function Filters () {
       }
     )
   }
-
   const handleChangeCategory = (event) => {
     setFilters(
       {

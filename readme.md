@@ -9,3 +9,10 @@ Proyecto creados con vite
 
 ## Dependencias de desarrollo
 Startard JS + ESLint VSCODE extension
+
+
+## Cosas que estudiar
+
+### zustand
+Para la gestión de estados globales
+https://zustand-demo.pmnd.rs/

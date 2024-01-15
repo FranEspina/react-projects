@@ -1,5 +1,5 @@
 :root {
-  background-color: #050834;
+  background-color: #222222;
   color: #d5d5d5;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -14,6 +14,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 20px;
 }
 
 ::-webkit-scrollbar {
@@ -42,7 +43,7 @@ main{
 .product-list{
   display: grid;
   grid-template-columns: repeat(
-    auto-fit,
+    auto-fill,
     minmax(
       200px,
       1fr
@@ -60,6 +61,7 @@ main{
 }
 
 .product-info{
+  margin-top: 10px;
   padding-left: 10px;
 }
 
@@ -82,7 +84,6 @@ main{
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  margin-top: 10px;
 }
 
 button {
@@ -92,18 +93,32 @@ button {
   color: #d5d5d5;
   background-color: #3A63A8;
   border-style: none;
-  transition: all ease 0.2s;
+  transition: all ease-in 0.3s;
   cursor: pointer;
 }
 
 button:hover {
-  color: #050834;
+  color: #222222;
   background-color: #7cb8f2;
 }
 
 button.danger{
   background-color: #5c6972;
 }
+
+button.in-cart{
+  background-color: #222222;
+  display: block;
+}
+
+button.in-cart:hover{
+  background-color: #7cb8f2;
+}
+
+button.not-in-cart{
+  display: none;
+}
+
 
 button.danger:hover {
   color: #050834;
@@ -176,8 +191,11 @@ i.bx{
   position: fixed;
   right: 0px;
   top: 0px;
-  width: 200px;  
+  background-color: #333;
+  width: 240px;  
 }
+
+
 
 .cart-button {
   align-items: center;
@@ -189,11 +207,35 @@ i.bx{
   justify-content: center;
   padding: 4px;
   position: absolute;
-  right: 8px;
-  top: 8px;
+  right: 12px;
+  top: 10px;
   transition: all .3s ease;
   width: 32px;
   z-index: 9999;
+}
+
+.cart-num-items{
+  display: none;
+}
+
+.cart-num-items{
+  align-items: center;
+  background: #d5d5d5;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  padding: 0px;
+  position: absolute;
+  left: 26px;
+  top: 26px;
+  transition: all .3s ease;
+  width: 20px;
+  z-index: 9999;
+  color: #050834;
+  font-size: 10px;
+  font-weight: 700;
 }
 
 .cart-button:hover {
