@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
+import { EuroFormat } from '../services/eurosService'
 
 export function Products({ products }) {
   const { addItemToCart, removeItemFromCart } = useContext(CartContext)
@@ -18,7 +19,7 @@ export function Products({ products }) {
                 </figure>
                 <div className='product-info'>
                   <h3>{product.title}</h3>
-                  <p>{product.price} <span> €</span></p>
+                  <p>{EuroFormat(product.price)}</p>
                 </div>
                 <div className='product-actions'>
                   <button onClick={() => addItemToCart(product)}><i className='bx bx-cart-add'></i></button>

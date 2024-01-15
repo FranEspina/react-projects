@@ -6,6 +6,14 @@ export function CartProvider ({ children }) {
   const [cartItems, setCartItems] = useState([])
   const [amountCart, setAmountCart] = useState(0)
 
+  const clearCart = () => {
+    setCartItems([])
+  }
+
+  const finishCart = () => {
+    setCartItems([])
+  }
+
   const addItemToCart = (product) => {
     const newItems = structuredClone(cartItems)
     let item = newItems.find(i => i.id === product.id)
@@ -49,6 +57,8 @@ export function CartProvider ({ children }) {
       setCartItems,
       addItemToCart,
       removeItemFromCart,
+      clearCart,
+      finishCart, 
       amountCart
     }}
     >

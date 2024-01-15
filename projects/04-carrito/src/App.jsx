@@ -10,7 +10,7 @@ function App () {
   return (
     <>
       <header>
-        <h1>Mi tienda en React</h1>
+        <h1>Mi tienda React</h1>
       </header>
       <main>
         <Filters />

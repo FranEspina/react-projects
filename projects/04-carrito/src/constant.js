@@ -1,3 +1,7 @@
 export const FILTERS = {
-  MAX_PRICE: 5000
+  MAX_PRICE: 2000
+}
+
+export const PAGINATION = {
+  SIZE: 20
 }
