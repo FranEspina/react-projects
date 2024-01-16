@@ -4,4 +4,6 @@
     box-sizing: border-box;
     background-color: #222222;
     color: #eeeeee;
+    max-width: 900px;
+    margin: auto;
 }

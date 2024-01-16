@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
 }
 
 .cat-container{
@@ -11,13 +12,32 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-top: 30px;
+}
+
+.cat-container p{
+  width: 80%;
+  color: #eee;
 }
 
 .cat-container img{
   height: 200px;
   width: auto;
+  margin-top: 20px;
 }
 
 .cat-container button{
   cursor: pointer;
+  height: 40px;
+  padding: 10px 30px;
+  background-color: #444;
+  border: transparent 1px solid;
+  border-radius: 10px;
+  color: #eee;
+  transition: all 0.5ms ease;
+  margin-top: 20px;
+}
+
+.cat-container button:hover{
+  background-color: #333;
 }

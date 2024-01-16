@@ -1,8 +1,7 @@
-# React + Vite
+# Buscador de películas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto básico que hace una petición a un API de películas a partir de un campo de texto que rellena el usuario.
 
-Currently, two official plugins are available:
+Basado en el proyecto original de [midudev](https://github.com/midudev/aprendiendo-react), con algún ligero cambio.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Buscador de películas](./docs/image-01.png)
