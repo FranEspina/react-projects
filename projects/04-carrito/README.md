@@ -1,6 +1,8 @@
 # Lista de productos
 Prueba de concepto de una lista de comercio electrónico.
 
+Productos de una [tienda](https://fjespina-sample-store.netlify.app/) realizada en React y Vanilla JavaScript partiendo de la plantilla de Vite + React. Actualmente desplegada en [netlify](https://fjespina-sample-store.netlify.app/).
+
 ## Lista de conceptos probados
 - Fetchinig de datos a traves de una API.
 - Uso de estados y efectos de React para mejora del rendimiento.
@@ -13,8 +15,6 @@ Prueba de concepto de una lista de comercio electrónico.
 - Almacenamiento local del carrito en el dispositivo
 
 ![Lista inicial de productos](./docs/image-01.png)
-
-Productos de una [tienda](https://fjespina-sample-store.netlify.app/) realizada en React y Vanilla JavaScript partiendo de la plantilla de Vite + React. Actualmente desplegada en [netlify](https://fjespina-sample-store.netlify.app/).
 
 A partir de una prueba técnica en el canal de [midudev](https://github.com/midudev), se crea desde cero la web ampliando los conceptos que se muetran en el repositorio original.
 
