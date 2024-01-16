@@ -29,11 +29,11 @@ export function Filters () {
       <h2>Filtros</h2>
       <div className='filters'>
         <div className='price-filter'>
-          <label htmlFor={priceId}>Precio</label>
+          <label htmlFor={priceId}>Desde</label>
           <input type='range' id={priceId} min='0' max={FILTERS.MAX_PRICE} onChange={handleChangePrice} />
           <p>{filters.minPrice} <span> €</span></p>
         </div>
-        <div className='category-filter'>
+        <div className='custom-select'>
           <select id={categoryId} onChange={handleChangeCategory}>
             <option value='none'>[Categoría]</option>
             {

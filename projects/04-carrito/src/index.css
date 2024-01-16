@@ -144,29 +144,58 @@ button.danger:hover {
   background-color: #7cb8f2;
 }
 
+.custom-select {
+  min-width: 200px;
+  position: relative;
+}
+
 select {
-  height: 30px;
-  border-radius: 10px;
-  padding: 5px 10px;
-  color: #d5d5d5;
+  appearance: none;
+  /* safari */
+  -webkit-appearance: none;
+  /* other styles for aesthetics */
+  width: 100%;
+  font-size: 16px;
+  padding: 0.675em 6em 0.675em 1em;
   background-color: #3A63A8;
-  border-style: none;
-  transition: all ease 0.2s;
+  border: 1px transparent #d5d5d5;
+  border-radius: 10px;
+  color: #d5d5d5;
   cursor: pointer;
 }
 
-select:hover {
-  color: #050834;
-  background-color: #7cb8f2;
+.custom-select::before,
+.custom-select::after {
+  --size: 0.3rem;
+  position: absolute;
+  content: "";
+  right: 1rem;
 }
 
-option {
-  color: #050834;
-  height: 30px;
-  padding: 5px 10px;
-  background-color: #d5d5d5;
+.custom-select::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid #d5d5d5;
+  top: 40%;
+}
+
+.custom-select::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid #d5d5d5;
+  top: 55%;
+}
+
+option{
+  background-color: #333;
+  padding: 10px 0 !important;
   cursor: pointer;
 }
+
+option:hover{
+  background-color: #3A63A8;
+}
+
 
 input[type='range']{
   color: #5c6972;
@@ -211,6 +240,16 @@ i.bx{
   top: 0px;
   background-color: #333;
   width: 240px;  
+}
+
+.cart h3{
+  color: #3A63A8;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.cart header {
+  margin-bottom: 15px;
 }
 
 .cart .cart-container{
@@ -324,12 +363,21 @@ i.bx{
   gap: 10px;
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 660px) {
     .filters {
       flex-direction: column;
       justify-content: start;
       align-items: center;
     }
+
+    .custom-select {
+      margin-top: 10px;
+      align-self: self-start;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+
 
     .product-item{
       width: 100%;
