@@ -31,7 +31,6 @@ export function useProduct () {
         )
       }
     ).slice(0, PAGINATION.SIZE)
-    console.log({ momento: 'filtrando', filtros: delayFilters, proFilt: productsFiltered })
     setProducts(productsFiltered)
   }, 300), [])
 

@@ -44,6 +44,11 @@
   color: #5c6972;
 }
 
+body.cart-is-visible{
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 .product-list{
   display: grid;
   grid-template-columns: repeat(
@@ -206,6 +211,11 @@ i.bx{
   top: 0px;
   background-color: #333;
   width: 240px;  
+}
+
+.cart .cart-container{
+  height: 70%;
+  overflow-y: scroll;
 }
 
 .cart-button {

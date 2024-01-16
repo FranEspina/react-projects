@@ -3,10 +3,10 @@ import { CartContext } from '../context/CartContext'
 import { EuroFormat } from '../services/eurosService'
 
 export function Products ({ products }) {
-  const { addItemToCart, removeCompleteItemFromCart, isInCart } = useContext(CartContext)
+  const { addItemToCart, removeCompleteItemFromCart, isInCart, cartIsVisibled } = useContext(CartContext)
 
   return (
-    <section className='product-container'>
+    <section className={`product-container ${cartIsVisibled ? 'cart-is-visible' : ''}`}>
 
       {(products?.length > 0)
         ? <ul className='product-list'>
