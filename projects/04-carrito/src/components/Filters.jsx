@@ -7,7 +7,6 @@ export function Filters () {
   const categoryId = useId()
   const { filters, setFilters, categories } = useContext(FilterContext)
 
-
   const handleChangePrice = (event) => {
     setFilters(
       {

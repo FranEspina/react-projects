@@ -12,7 +12,7 @@ export function Cart () {
     <>
       <label className='cart-button' htmlFor={cartCheckboxId}>
         <CartIcon />
-        <p className={(cartItems.length > 0) ? 'cart-num-items' : 'cart-no-items'} >
+        <p className={(cartItems.length > 0) ? 'cart-num-items' : 'cart-no-items'}>
           {(cartItems.length > 0)
             ? countItemCart()
             : ''

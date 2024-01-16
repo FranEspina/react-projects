@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 import { EuroFormat } from '../services/eurosService'
 
-export function Products({ products }) {
+export function Products ({ products }) {
   const { addItemToCart, removeCompleteItemFromCart, isInCart } = useContext(CartContext)
 
   return (
