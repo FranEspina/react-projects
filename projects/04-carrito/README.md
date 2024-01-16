@@ -1,6 +1,17 @@
 # Lista de productos
 Prueba de concepto de una lista de comercio electrónico.
 
+## Lista de conceptos probados
+- Fetchinig de datos a traves de una API.
+- Uso de estados y efectos de React para mejora del rendimiento.
+- Uso de un reducer de React para encapsular funcionalidad
+- Uso de servicios y custom hooks para agrupar la funcionalidad.
+- Uso de contextos de React para el uso compartido de estados en la web.
+- Debouncing de datos con el paquete [just-debounce-it](https://www.npmjs.com/package/just-debounce-it) para evitar lógica innecesaria al filtrar por precio
+- Reponsive
+- Grid con scroll tanto en productos como carrito con anulación del scroll principal cuando el carrito está abierto y reinicio de scroll vertical mediante JS.
+- Almacenamiento local del carrito en el dispositivo
+
 ![Lista inicial de productos](./docs/image-01.png)
 
 Productos de una [tienda](https://fjespina-sample-store.netlify.app/) realizada en React y Vanilla JavaScript partiendo de la plantilla de Vite + React. Actualmente desplegada en [netlify](https://fjespina-sample-store.netlify.app/).
@@ -37,14 +48,3 @@ El carrito dispone de scroll vertical, lo que nos permite consultar el carrito i
 Del mismo modo, mientras tenemos abierto el carrito se invalida el scroll de la lista de productos que está de fondo, actuando el carrito como una ventana modal.
 
 Los productos añadidos al carrito de guardan en el almacenamiento local del dispositivo. Mediante los botos ``vaciar carrito`` o ``tramitar`` podemos limpiar el almacenamiento y reinicializar el carrito.
-
-## Lista de conceptos probados
-- Fetchinig de datos a traves de una API.
-- Uso de estados y efectos de React para mejora del rendimiento.
-- Uso de un reducer de React para encapsular funcionalidad
-- Uso de servicios y custom hooks para agrupar la funcionalidad.
-- Uso de contextos de React para el uso compartido de estados en la web.
-- Debouncing de datos con el paquete [just-debounce-it](https://www.npmjs.com/package/just-debounce-it) para evitar lógica innecesaria al filtrar por precio
-- Reponsive
-- Grid con scroll tanto en productos como carrito con anulación del scroll principal cuando el carrito está abierto y reinicio de scroll vertical mediante JS.
-- Almacenamiento local del carrito en el dispositivo
