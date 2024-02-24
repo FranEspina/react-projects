@@ -1,6 +1,8 @@
 # Lista de productos
 Prueba de concepto de una lista de comercio electrónico.
 
+A partir de una prueba técnica en el canal de [midudev](https://github.com/midudev), se crea desde cero la web ampliando los conceptos que se muetran en el repositorio original.
+
 Productos de una [tienda](https://fjespina-sample-store.netlify.app/) realizada en React y Vanilla JavaScript partiendo de la plantilla de Vite + React. Actualmente desplegada en [netlify](https://fjespina-sample-store.netlify.app/).
 
 ## Lista de conceptos probados
@@ -15,8 +17,6 @@ Productos de una [tienda](https://fjespina-sample-store.netlify.app/) realizada 
 - Almacenamiento local del carrito en el dispositivo
 
 ![Lista inicial de productos](./docs/image-01.png)
-
-A partir de una prueba técnica en el canal de [midudev](https://github.com/midudev), se crea desde cero la web ampliando los conceptos que se muetran en el repositorio original.
 
 La tienda consta de una lista de productos, que se obtienen con un feecth de datos inicial a través de la API de [dummyjson](https://dummyjson.com) y que se muestran en forma de grid al usuario.
 
